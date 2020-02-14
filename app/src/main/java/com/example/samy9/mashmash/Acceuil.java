@@ -74,7 +74,8 @@ public class Acceuil extends AppCompatActivity {
             Double rate = 0.0;
 
             // Making Request
-            try {
+            try
+            {
                 FileOutputStream outputStream;
                 URL url2 = new URL(url_str);
                 HttpURLConnection request = (HttpURLConnection) url2.openConnection();
@@ -93,18 +94,24 @@ public class Acceuil extends AppCompatActivity {
 
                 // Accessing object
                 rate = jsonobj2.get("EUR").getAsDouble();
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 FileInputStream inputStream;
 
                 // Reading the file with the default value
-                try {
+                try
+                {
                     inputStream = openFileInput("currency_old.txt");
                     inputStream.read();
                     inputStream.close();
-                } catch (Exception e2) {
+                }
+                catch (Exception e2)
+                {
                     rate = 0.0;
                 }
             }
+
             return rate;
         }
     }
